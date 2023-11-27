@@ -1,7 +1,7 @@
 # Whizard-Pythia8-Documentation
 This is a documentation for running events generation with Whizard+Pythia8 framework, including the Leading-Order (LO) and Next-to-Leading-Order (NLO) cases.
 ## Prerequisites
-The following packages are necessary to install before installing Whizard and Pythia8.
+The following packages are necessary before installing Whizard and Pythia8.
 ### LHAPDF
 LHAPDF is the standard tool for evaluating parton distribution functions (PDFs) in high-energy physics. It is not necessary for lepton collision, but Whizard will check if it exists when your configuration includes the arguements for NLO calculations.
 
