@@ -91,3 +91,21 @@ If everything is fine, you can just run
 make
 make install
 ```
+## Event generation with Whizard+Pythia8
+In this repository, there are some folders that include some examples for running Whizard+Pythia8:
+* **tunes**: the LO event generation with the Whizard interface with Pythia8.
+* **eeqq_nlo**: the NLO event generation of process e+e- -> qqbar.
+* **ee4j_nlo**: the NLO event generation of process e+e- -> 4jets.
+* **eebbmumu_nlo**: the NLO event generation of process e+e- -> mu+mu-bbbar.
+
+The following folders include example programs to run Pythia8 standalone:
+* **shower_default**: parton shower and hadronization with the Pythia8 default tune.
+* **shower_OPAL**: parton shower and hadronization with the OPAL tune.
+* **shower_ALEPH**: parton shower and hadronization with the ALEPH tune.
+* **shower_POWHEG**: NLO matching by POWHEG method.
+
+To run these programs, you have to prepare parton level events with the Les Houches accord compliant format (LHE file), and edit the paths to **Pythia8** and **HepMC2** in the Makefile. After that, you can just run
+```
+make
+```
+to compile the codes.
