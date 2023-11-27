@@ -63,7 +63,7 @@ Now you can download Pythia8 from
 
 In the configure of Pythia8, you should add your path to **HepMC2**, **LHAPDF**, and **FastJet** by 
 ```
---with-PACKAGE=[=DIR]
+--with-PACKAGE[=DIR]
 ```
 If Pythia8 finds them successfully, some messages should be printed on your screen. After that, you can just run
 ```
