@@ -1,0 +1,30 @@
+include("nlo_settings.sin")
+
+$openloops_allowed_libs = "pplljj"
+
+cuts = let subevt @clustered_jets = cluster [jet] in
+       let subevt @pt_selected = select if Pt > 30 GeV [@clustered_jets] in
+       let subevt @eta_selected = select if abs(Eta) < 4 [@pt_selected] in
+       count [@eta_selected] >= 4
+
+scale = let subevt @clustered_jets = cluster [jet] in
+        sum Pt/2 [@clustered_jets]
+
+alpha_power = 2
+alphas_power = 2
+
+#?combined_nlo_integration = true
+process nlo_ee4j_p1 = e1, E1 => jet, jet, jet, jet { nlo_calculation = full $restrictions = "!W+:W-" }
+
+?fixed_order_nlo_events = false
+?combined_nlo_integration = true
+?negative_weights = true
+?powheg_matching = true
+
+integrate (nlo_ee4j_p1) { iterations = 10:20000:"gw" }
+
+n_events = 1000
+$sample = "ee4j_nlo_1000"
+sample_format = lhef
+
+simulate(nlo_ee4j_p1)

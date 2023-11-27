@@ -1,0 +1,39 @@
+include ("nlo_settings.sin")
+
+$openloops_allowed_libs = "ppllll"
+
+alias bjet = b:B:gl
+
+cuts = all 85 GeV < M < 95 GeV [e2, E2]
+       and all 110 GeV < M < 140 GeV [collect[bjet]]
+       and count [cluster if E > 0 GeV [bjet]] > 1
+
+alpha_power = 4
+alphas_power = 0
+
+# ?resonance_history = true
+# $fks_mapping_type = "resonances"
+
+?openloops_switch_off_muon_yukawa = true
+
+alphas_nf = 4
+ps_max_n_flavors = 4
+mb = 4.7
+
+scale = eval Ht/2 [bjet:e2:E2]
+
+#?combined_nlo_integration = true
+process nlo_eebbmumu_p1 = e1, E1 => b, B, e2, E2 { nlo_calculation = full } # $restrictions = "3+4~H && 5+6~Z"}
+
+?fixed_order_nlo_events = false
+?combined_nlo_integration = true
+?negative_weights = true
+?powheg_matching = true
+
+integrate (nlo_eebbmumu_p1) { iterations = 10:1000000:"gw" } 
+
+n_events = 1000
+$sample = "eebbmumu_nlo_1000"
+sample_format = lhef
+
+simulate(nlo_eebbmumu_p1)

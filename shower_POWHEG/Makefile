@@ -1,0 +1,25 @@
+CXX=g++
+CXX_COMMON=-O2 -std=c++11 -pedantic -W -Wall -Wshadow -fPIC
+
+PYTHIA_PATH=<YOUR_PATH_TO_PYTHIA8>
+PYTHIA_BIN=$(PYTHIA_PATH)/bin
+PYTHIA_INC=$(PYTHIA_PATH)/include
+PYTHIA_LIB=$(PYTHIA_PATH)/lib
+PYTHIA_SHARE=$(PYTHIA_PATH)/share/Pythia8
+
+HEPMC2_PATH=<YOUR_PATH_TO_HEPMC2>
+HEPMC2_BIN=$(HEPMC2_PATH)/bin
+HEPMC2_INC=$(HEPMC2_PATH)/include
+HEPMC2_LIB=$(HEPMC2_PATH)/lib
+
+CFLAGS=-I$(HEPMC2_INC) -I$(PYTHIA_INC) -Wall
+LDFLAGS=-L$(PYTHIA_LIB) -Wl,-rpath $(PYTHIA_LIB) -L$(HEPMC2_LIB) -Wl,-rpath $(HEPMC2_LIB)
+LIBS=-ldl -lHepMC
+
+OBJS=main.o
+
+shower: $(OBJS) $(PYTHIA_LIB)/libpythia8.a
+	$(CXX) $^ -o $@ $(LDFLAGS) $(LIBS)
+
+$(OBJS): main.cpp
+	$(CXX) $(CFLAGS) $(CXX_COMMON) -c $^

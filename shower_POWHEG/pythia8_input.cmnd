@@ -1,0 +1,9 @@
+POWHEG:nfinal = 2
+POWHEG:veto = 1
+POWHEG:vetoCount = 3
+POWHEG:pThard = 2
+POWHEG:pTemt = 0 
+POWHEG:emitted = 0
+POWHEG:pTdef = 1
+POWHEG:MPIveto = 0
+POWHEG:QEDveto = 2
