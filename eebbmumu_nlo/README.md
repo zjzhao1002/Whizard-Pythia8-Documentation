@@ -1,7 +1,7 @@
 # Description
 **NLO_eebbmumu_OpenLoops.sin** is an example file to generate bbmumu events at e+e- collider. If you install Whizard with OpenLoops interface successfully, you can run
 ```
-whizard NLO_ee4j_OpenLoops.sin
+whizard NLO_eebbmumu_OpenLoops.sin
 ```
 to generate events. The process library **ppllll** is needed.
 
