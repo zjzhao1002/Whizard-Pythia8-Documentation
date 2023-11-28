@@ -74,6 +74,7 @@ make install
 ## Installation of Whizard
 Finally, you can install Whizard. Whizard's homepage is 
 * [https://whizard.hepforge.org/](https://whizard.hepforge.org/)
+
 In this case, your configure is quite long, because you have to add
 ```
 --enable-PACKAGE --with-PACKAGE=<YOUR_PATH_TO_THIS_PACKAGE>
