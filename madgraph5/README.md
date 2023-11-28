@@ -12,4 +12,31 @@ or clone a git version:
 ```
 git clone https://github.com/mg5amcnlo/mg5amcnlo.git
 ```
+Now you can go to its directory and run
+```
+./bin/mg5_aMC
+```
 
+Now you are running MadGraph in command line mode. To generate events, you can run something like
+```
+generate e+ e- > b b~ mu+ mu- aEW=4 aS=0 [all=QCD]
+```
+It will generate bbmumu process at ee collision, with the electroweak coupling power up to 4 and the strong coupling power up to zero.
+In default, MadGraph5 only generates diagrams with the highest strong coupling power. 
+You have to specify the aEW value to obtain all diagrams of the process.
+[all=QCD] means including all QCD corrections. If you only need LO result, please just remove this part. 
+
+The next step is generating codes for the simulation of this process. You can run something like
+```
+output eebbmumu_NLO
+```
+eebbmumu_NLO is a folder name and can be anything. 
+All codes for simulation are stored in the directory
+```
+<YOUR_PATH_TO_MADGRAPH5>/eebbmumu_NLO
+```
+In this directory, you should find 
+```
+bin/generate_events
+```
+to generate events.
