@@ -40,3 +40,18 @@ In this directory, you should find
 bin/generate_events
 ```
 to generate events.
+
+The model parameters and collider setup can be input by editing following files
+```
+Cards/parm_card.dat
+Cards/run_card.dat
+```
+In the **param_card.dat**, you can modify some physical parameters, such as the masses, widths and couplings.
+In the **run_card.dat**, you can modify the beam energy, beam structure functions, cuts, scales and so on. 
+These cards have some differences between the LO case and the NLO case. 
+Examples can be found here.
+
+There are two methods to implement cuts: 
+* Editting the run_card.dat
+* Writing some fortran codes to implement user defined cuts
+
