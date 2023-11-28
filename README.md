@@ -107,6 +107,9 @@ The following folders include example programs to run Pythia8 standalone:
 * **shower_ALEPH**: parton shower and hadronization with the ALEPH tune.
 * **shower_POWHEG**: NLO matching by POWHEG method.
 
+For comparison, you may want to run MadGraph5. Some guides can be found in 
+* **madgraph5**
+
 To run these programs, you have to prepare parton level events with the Les Houches accord compliant format (LHE file), and edit the paths to **Pythia8** and **HepMC2** in the Makefile. After that, you can just run
 ```
 make
