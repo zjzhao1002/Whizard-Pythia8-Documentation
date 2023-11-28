@@ -62,3 +62,4 @@ SubProcesses/dummy_fct.f
 **dummy_fct_LO.f** and **dummy_fct_NLO.f** provide two examples to implement user defined cuts for LO and NLO, respectively.
 What we need to do is coding the contents of **dummy_cuts** function. 
 If the event do not pass the user defined cuts, set the value of **dummy_cuts** to false.
+Finally, you have to give your path to this file to **custom_fcts** in the **run_card.dat**.
