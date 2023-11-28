@@ -35,7 +35,7 @@ All codes for simulation are stored in the directory
 ```
 <YOUR_PATH_TO_MADGRAPH5>/eebbmumu_NLO
 ```
-In this directory, you should find 
+From now on, I assume you are working in this directory. You should find 
 ```
 bin/generate_events
 ```
@@ -61,4 +61,4 @@ SubProcesses/dummy_fct.f
 ```
 **dummy_fct_LO.f** and **dummy_fct_NLO.f** provide two examples to implement user defined cuts for LO and NLO, respectively.
 What we need to do is coding the contents of **dummy_cuts** function. 
-If the event do not pass your cuts, set the value of **dummy_cuts** to false.
+If the event do not pass the user defined cuts, set the value of **dummy_cuts** to false.
