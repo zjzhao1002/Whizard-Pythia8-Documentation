@@ -12,7 +12,15 @@ or clone a git version:
 ```
 git clone https://github.com/mg5amcnlo/mg5amcnlo.git
 ```
-Now you can go to its directory and run
+
+The configurations of MadGraph5 are done in the following file
+```
+<YOUR_PATH_TO_MADGRAPH5>/input/mg5_configuration.txt
+```
+Especially, you should give your path to Pythia8 if you want to use Pythia8 shower. 
+Pythia8.2 has been well tested. Principlely, Pythia8.3 should work, too. But we need some further check.
+
+Now you can go to MadGraph5 directory and run
 ```
 ./bin/mg5_aMC
 ```
