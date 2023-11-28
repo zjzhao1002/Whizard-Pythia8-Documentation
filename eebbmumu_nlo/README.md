@@ -1,5 +1,5 @@
 # Description
-**NLO_eebbmumu_OpenLoops.sin** is an example file to generate 4 jets events at e+e- collider. If you install Whizard with OpenLoops interface successfully, you can run
+**NLO_eebbmumu_OpenLoops.sin** is an example file to generate bbmumu events at e+e- collider. If you install Whizard with OpenLoops interface successfully, you can run
 ```
 whizard NLO_ee4j_OpenLoops.sin
 ```
