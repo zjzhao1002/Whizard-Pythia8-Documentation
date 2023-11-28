@@ -55,3 +55,10 @@ There are two methods to implement cuts:
 * Editting the run_card.dat
 * Writing some fortran codes to implement user defined cuts
 
+Template of the second method can be found in
+```
+SubProcesses/dummy_fct.f
+```
+**dummy_fct_LO.f** and **dummy_fct_NLO.f** provide two examples to implement user defined cuts for LO and NLO, respectively.
+What we need to do is coding the contents of **dummy_cuts** function. 
+If the event do not pass your cuts, set the value of **dummy_cuts** to false.
