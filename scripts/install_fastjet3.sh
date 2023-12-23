@@ -5,7 +5,7 @@ tar zxvf fastjet-3.4.2.tar.gz
 
 cd fastjet-3.4.2/
 
-INSTALL_PATH=/Users/zjzhao/hep-app/fastjet3/install
+INSTALL_PATH=<YOUR_FASTJET3_INSTALL_PATH>
 
 mkdir -p ${INSTALL_PATH}
 
