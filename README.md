@@ -1,22 +1,35 @@
 # Whizard-Pythia8-Documentation
 This is a documentation for running events generation with Whizard+Pythia8 framework, including the Leading-Order (LO) and Next-to-Leading-Order (NLO) cases.
 ## Prerequisites
-The following packages are necessary before installing Whizard and Pythia8.
+The following packages are necessary before installing Whizard and Pythia8. 
+In MacOS, you may have not **gfortran** and/or **ocaml**. Please install them by Homebrew first.
 ### LHAPDF
 LHAPDF is the standard tool for evaluating parton distribution functions (PDFs) in high-energy physics. It is not necessary for lepton collision, but Whizard will check if it exists when your configuration includes the arguements for NLO calculations.
 
 LHAPDF can be downloaded from 
 * [https://lhapdf.hepforge.org/](https://lhapdf.hepforge.org/)
 
-The website contains comprehensive documentation on the configuring and installation procedure. Whizard will check if you install the following PDF sets:
+The website contains comprehensive documentation on the configuring and installation procedure. 
+You can go to your LHAPDF directory and run:
+```
+./configure --prefix=<YOUR_LHAPDF_INSTALL_PATH>
+make
+make install
+```
+If your OS has not **python** executable, please also add **PYTHON_VERSION=3** in the configure. 
+So LHAPDF will find a **python3** executable alternatively.
+Whizard will check if you have installed the following PDF sets:
 * CT10
 * cteq6l1
 * NNPDF23_lo_as_0130_qed
 * NNPDF23_nlo_as_0118
 
-Please make sure your PDF sets are located in the directory
+They can be downloaded from: 
+* [https://lhapdfsets.web.cern.ch/current/](https://lhapdfsets.web.cern.ch/current/)
+
+Please untar these PDF sets to the directory
 ```
-<YOUR_INSTALL_PATH>/share/LHAPDF
+<YOUR_LHAPDF_INSTALL_PATH>/share/LHAPDF
 ```
 ### HEPMC2
 The HepMC package is an object oriented, C++ event record for High Energy Physics Monte Carlo generators and simulation. It can be downloaded from
@@ -24,12 +37,25 @@ The HepMC package is an object oriented, C++ event record for High Energy Physic
 
 Be careful! You have to install the version 2 rather than the 3.x.x, because the **ddsim** can only read the version 2 at present. The configure should be something like:
 ```
-configure --with-momentum=GEV --with-length=MM --prefix=<install dir>
+configure --with-momentum=GEV --with-length=MM --prefix=<YOUR_HEPMC2_INSTALL_PATH>
 ```
-This means that the momentum unit is GeV and the length unit is mm in the hepmc file.
+This means that the momentum unit is GeV and the length unit is mm in the hepmc file. 
+If everything is fine, you can run
+```
+make
+make install
+```
+to install it.
 ### FastJet
 FastJet is a C++ class library for handling jet clustering. It is necessary for some NLO runs. It can be downloaded from
 * [http://fastjet.fr/](http://fastjet.fr/)
+
+There is not special to say here. Pleas go to it directory and just run the usual commands: 
+```
+./configure --prefix=<YOUR_FASTJET_INSTALL_PATH>
+make
+make install
+```
 ### OpenLoops
 The OpenLoops is a fully automated implementation of the Open Loops algorithm combined with on-the-fly reduction methods, which allows for the fast and stable numerical evaluation of tree and one-loop matrix elements for any Standard Model process at NLO QCD and NLO EW. It acts as an one loop provider for Whizard. It can be obtained by 
 ```
@@ -39,6 +65,15 @@ After checkout or download of OpenLoops you can compile the code using the follo
 ```
 cd OpenLoops
 ./scons 
+```
+If your system only have **python3** executable, you may need to edit the first line of the **scons** script. 
+Please replace 
+```
+#! /usr/bin/env python
+```
+by
+```
+#! /usr/bin/env python3
 ```
 Before starting to use OpenLoops you have to download and compile the process libraries for the amplitudes you want to use. You can download several individual processes via
 ```
@@ -83,6 +118,7 @@ for all packages described above. If Whizard finds them successfully, some messa
 ```
 PATH
 LD_LIBRARY_PATH
+DYLD_LIBRARY_PATH
 ```
 or add some environment variables like
 ```
