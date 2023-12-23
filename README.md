@@ -114,7 +114,13 @@ In this case, your configure is quite long, because you have to add
 ```
 --enable-PACKAGE --with-PACKAGE=<YOUR_PATH_TO_THIS_PACKAGE>
 ```
-for all packages described above. If Whizard finds them successfully, some messages should be printed on your screen. If some packages are missed, you can try to edit the environment variables:
+for all packages described above. 
+If you are using MacOS, you may need to add some flags:
+```
+CXX="g++" CXXFLAGS="-std=c++11 -pthread"
+```
+You can replace **c++11** by a newer C++ standard if you want. 
+If Whizard finds them successfully, some messages should be printed on your screen. If some packages are missed, you can try to edit the environment variables:
 ```
 PATH
 LD_LIBRARY_PATH
