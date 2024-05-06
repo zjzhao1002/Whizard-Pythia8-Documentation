@@ -4,7 +4,7 @@ Here provides some scripts to install packages.
 It is recommended to install them step by step, to avoid some unexpected issues.
 
 Please install **LHAPDF6**, **HepMC2** and **FastJet3** first. 
-What you need to do is giving your INSTALL_PATH in these scripts.
+What you need to do is giving your **INSTALL_PATH** in these scripts.
 
 Installation of **OpenLoops** is quite simple. You may not need this script, 
 but it can show you the steps clearly. 
